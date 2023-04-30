@@ -69,7 +69,7 @@ stages:
       steps:
       - task: DockerInstaller@0
         inputs:
-          dockerVersion: '23.0.05'
+          dockerVersion: '23.0.5'
       - task: DownloadPipelineArtifact@2
         inputs:
           buildType: 'specific'
