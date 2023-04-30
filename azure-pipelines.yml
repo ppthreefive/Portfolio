@@ -37,3 +37,7 @@ steps:
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/testresults/junit/unit-test-result.xml'
+
+- task: PublishCodeCoverageResults@2
+  inputs:
+    summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
