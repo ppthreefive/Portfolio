@@ -71,7 +71,7 @@ stages:
       - task: DownloadPipelineArtifact@2
         inputs:
           buildType: 'specific'
-          project: 'a7fce911-747c-4a2e-b404-1907a2824e2b'
+          project: '530a322f-b707-4bec-9244-9b2364009a93'
           definition: '408'
           buildVersionToDownload: 'latest'
           allowPartiallySucceededBuilds: true
