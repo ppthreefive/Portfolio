@@ -42,3 +42,11 @@ steps:
   inputs:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
+
+- script: |
+    mkdir $(Build.ArtifactStagingDirectory)\\dist
+    xcopy "dist\\portfolio-app" $(Build.ArtifactStagingDirectordist /E/H/C
+  displayName: Copy dist contents
+
+- task: PublishBuildArtifacts@1
+  displayName: "Publish Artifact"
