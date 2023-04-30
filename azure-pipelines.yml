@@ -57,22 +57,35 @@ stages:
 
           - task: PublishBuildArtifacts@1
             displayName: "Publish Artifact"
+            inputs:
+              PathtoPublish: 'dist'
+              ArtifactName: 'portfolio-ui'
+              publishLocation: 'Container'
 
   - stage: Deploy
-    dependsOn: Build
-    condition: succeeded('Build')
-
     pool:
       name: Default
-    
     jobs:
-      - job: Deploy
-        displayName: "Angular App Deploy"
-        steps:
-          - task: AzureStaticWebApp@0
-            inputs:
-              app_location: "portfolio-ui" 
-              api_location: "api"
-              output_location: "dist/portfolio-ui"
-            env:
-              azure_static_web_apps_api_token: $(deployment_token)
+    - job: DeployWebAppProd
+      steps:
+      - task: DownloadPipelineArtifact@2
+        inputs:
+          buildType: 'specific'
+          project: 'a7fce911-747c-4a2e-b404-1907a2824e2b'
+          definition: '408'
+          buildVersionToDownload: 'latest'
+          allowPartiallySucceededBuilds: true
+          allowFailedBuilds: true
+          artifactName: 'portfolio-ui'
+          targetPath: '$(Pipeline.Workspace)'
+      - bash: cd $(Pipeline.Workspace); echo $(ls)
+      - bash: cd $(Pipeline.Workspace)/portfolio-ui; echo $(ls)
+      - task: AzureStaticWebApp@0
+        inputs:
+          cwd: '$(Pipeline.Workspace)'
+          app_location: '/'
+          skip_app_build: true
+          skip_api_build: true
+          verbose: true
+        env:
+          azure_static_web_apps_api_token: '$(deployment_token)'
