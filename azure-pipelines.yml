@@ -6,47 +6,73 @@
 trigger:
 - master
 
-pool:
-  name: Default
+stages:
+  - stage: Build
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '16.x'
-  displayName: 'Install Node.js'
+    pool:
+      name: Default
 
-- task: Npm@1
-  inputs:
-    command: custom
-    customCommand: "install"
-  displayName: "npm install"
+    jobs:
+      - job: Build
+        displayName: "Angular App Build"
+        workspace:
+          clean: all
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '16.x'
+            displayName: 'Install Node.js'
 
-- task: Npm@1
-  inputs:
-    command: custom
-    customCommand: "run build"
-  displayName: "Build Angular app"
+          - task: Npm@1
+            inputs:
+              command: custom
+              customCommand: "install"
+            displayName: "npm install"
+              
+          - task: Npm@1
+            inputs:
+              command: custom
+              customCommand: "run build"
+            displayName: "Build Angular app"
+          - task: Npm@1
+            inputs:
+              command: custom
+              customCommand: "run test"
+            displayName: "Test Angular app"
 
-- task: Npm@1
-  inputs:
-    command: custom
-    customCommand: "run test"
-  displayName: "Test Angular app"
+          - task: PublishTestResults@2
+            inputs:
+              testResultsFormat: 'JUnit'
+              testResultsFiles: '**/testresults/junit/unit-test-result.xml'
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/testresults/junit/unit-test-result.xml'
+          - task: PublishCodeCoverageResults@1
+            inputs:
+              codeCoverageTool: 'Cobertura'
+              summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
 
-- task: PublishCodeCoverageResults@1
-  inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
+          - script: |
+              mkdir $(Build.ArtifactStagingDirectory)\\dist
+              xcopy "dist\\portfolio-ui" $(Build.ArtifactStagingDirectory)\\dist /E/H/C
+            displayName: Copy dist contents
 
-- script: |
-    mkdir $(Build.ArtifactStagingDirectory)\\dist
-    xcopy "dist\\portfolio-ui" $(Build.ArtifactStagingDirectory)\\dist /E/H/C
-  displayName: Copy dist contents
+          - task: PublishBuildArtifacts@1
+            displayName: "Publish Artifact"
 
-- task: PublishBuildArtifacts@1
-  displayName: "Publish Artifact"
+  - stage: Deploy
+    dependsOn: Build
+    condition: succeeded('Build')
+
+    pool:
+      name: Default
+    
+    jobs:
+      - job: Deploy
+        displayName: "Angular App Deploy"
+        steps:
+          - task: AzureStaticWebApp@0
+            inputs:
+              app_location: "portfolio-ui" 
+              api_location: "api"
+              output_location: "dist/portfolio-ui"
+            env:
+              azure_static_web_apps_api_token: $(deployment_token)
