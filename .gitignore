@@ -40,3 +40,7 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+/obj/Debug/PortfolioUI.esproj.CoreCompileInputs.cache
+/obj/Debug
+/nuget.config
+/PortfolioUI.esproj
