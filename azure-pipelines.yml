@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  -agent.name -equals PHIL-PC
+  -agent.name -equals Default
 
 steps:
 - task: NodeTool@0
