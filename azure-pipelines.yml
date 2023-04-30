@@ -45,7 +45,7 @@ steps:
 
 - script: |
     mkdir $(Build.ArtifactStagingDirectory)\\dist
-    xcopy "dist\\portfolio-app" $(Build.ArtifactStagingDirectordist /E/H/C
+    xcopy "dist\\portfolio-ui" $(Build.ArtifactStagingDirectory)\\dist /E/H/C
   displayName: Copy dist contents
 
 - task: PublishBuildArtifacts@1
