@@ -18,9 +18,6 @@ stages:
         workspace:
           clean: all
         steps:
-          - task: DockerInstaller@0
-            inputs:
-              dockerVersion: '17.09.0-ce'
           - task: NodeTool@0
             inputs:
               versionSpec: '16.x'
@@ -70,6 +67,9 @@ stages:
     jobs:
     - job: DeployWebAppProd
       steps:
+      - task: DockerInstaller@0
+        inputs:
+          dockerVersion: '17.09.0-ce'
       - task: DownloadPipelineArtifact@2
         inputs:
           buildType: 'specific'
@@ -82,7 +82,7 @@ stages:
           targetPath: '$(Pipeline.Workspace)'
       - bash: cd $(Pipeline.Workspace); echo $(ls)
       - bash: cd $(Pipeline.Workspace)/portfolio-ui; echo $(ls)
-      - task: 
+      - task: AzureStaticWebApp@0
         inputs:
           cwd: '$(Pipeline.Workspace)'
           app_location: '/'
