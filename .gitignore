@@ -45,3 +45,5 @@ Thumbs.db
 /nuget.config
 /PortfolioUI.esproj
 /PortfolioUI.esproj.user
+/testresults/coverage/code-coverage.xml
+/testresults/junit/unit-test-result.xml
