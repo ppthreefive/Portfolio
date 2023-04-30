@@ -10,10 +10,6 @@ pool:
   name: Default
 
 steps:
-- task: UseDotNet@2
-  inputs:
-    packageType: 'sdk'
-    version: '2.1.x'
 - task: NodeTool@0
   inputs:
     versionSpec: '16.x'
@@ -42,6 +38,6 @@ steps:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/testresults/junit/unit-test-result.xml'
 
-- task: PublishCodeCoverageResults@2
+- task: PublishCodeCoverageResults@1
   inputs:
     summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
