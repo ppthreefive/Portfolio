@@ -27,12 +27,16 @@ stages:
             inputs:
               command: custom
               customCommand: "install"
+              workingDir: '$(System.DefaultWorkingDirectory)'
+              verbose: false
             displayName: "npm install"
               
           - task: Npm@1
             inputs:
               command: custom
               customCommand: "run build"
+              workingDir: '$(System.DefaultWorkingDirectory)'
+              verbose: false
             displayName: "Build Angular app"
           - task: Npm@1
             inputs:
@@ -49,11 +53,6 @@ stages:
             inputs:
               codeCoverageTool: 'Cobertura'
               summaryFileLocation: '**/testresults/coverage/code-coverage.xml'
-
-          - script: |
-              mkdir $(Build.ArtifactStagingDirectory)\\dist
-              xcopy "dist\\portfolio-ui" $(Build.ArtifactStagingDirectory)\\dist /E/H/C
-            displayName: Copy dist contents
 
           - task: PublishBuildArtifacts@1
             displayName: "Publish Artifact"
@@ -77,12 +76,12 @@ stages:
           allowPartiallySucceededBuilds: true
           allowFailedBuilds: true
           artifactName: 'portfolio-ui'
-          targetPath: '$(Build.ArtifactStagingDirectory)'
-      - bash: cd $(Build.ArtifactStagingDirectory); echo $(ls)
-      - bash: cd $(Build.ArtifactStagingDirectory)/portfolio-ui; echo $(ls)
+          targetPath: '$(Pipeline.Workspace)'
+      - bash: cd $(Pipeline.Workspace); echo $(ls)
+      - bash: cd $(Pipeline.Workspace)/portfolio-ui; echo $(ls)
       - task: AzureStaticWebApp@0
         inputs:
-          cwd: '$(Build.ArtifactStagingDirectory)'
+          cwd: '$(Pipeline.Workspace)'
           app_location: '/'
           skip_app_build: true
           skip_api_build: true
