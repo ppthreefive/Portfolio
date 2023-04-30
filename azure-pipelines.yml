@@ -18,6 +18,9 @@ stages:
         workspace:
           clean: all
         steps:
+          - task: DockerInstaller@0
+            inputs:
+              dockerVersion: '17.09.0-ce'
           - task: NodeTool@0
             inputs:
               versionSpec: '16.x'
@@ -67,9 +70,6 @@ stages:
     jobs:
     - job: DeployWebAppProd
       steps:
-      - task: DockerInstaller@0
-        inputs:
-          dockerVersion: '17.09.0-ce'
       - task: DownloadPipelineArtifact@2
         inputs:
           buildType: 'specific'
