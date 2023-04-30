@@ -1,4 +1,4 @@
-﻿module.exports = function (config) {
+module.exports = function (config) {
   config.set({
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
@@ -7,7 +7,8 @@
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage'),
-      require('@angular-devkit/build-angular/plugins/karma')
+      require('@angular-devkit/build-angular/plugins/karma'),
+      require('karma-junit-reporter')
     ],
     client: {
       jasmine: {
@@ -29,7 +30,12 @@
         { type: 'text-summary' }
       ]
     },
-    reporters: ['progress', 'kjhtml'],
+    junitReporter: {
+      outputDir: 'testresults/junit',
+      outputFile: 'unit-test-result.xml',
+      useBrowserName: false
+    },
+    reporters: ['progress', 'kjhtml', 'junit'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
