@@ -77,12 +77,12 @@ stages:
           allowPartiallySucceededBuilds: true
           allowFailedBuilds: true
           artifactName: 'portfolio-ui'
-          targetPath: '$(Pipeline.Workspace)'
-      - bash: cd $(Pipeline.Workspace); echo $(ls)
-      - bash: cd $(Pipeline.Workspace)/portfolio-ui; echo $(ls)
+          targetPath: '$(Build.ArtifactStagingDirectory)'
+      - bash: cd $(Build.ArtifactStagingDirectory); echo $(ls)
+      - bash: cd $(Build.ArtifactStagingDirectory)/portfolio-ui; echo $(ls)
       - task: AzureStaticWebApp@0
         inputs:
-          cwd: '$(Pipeline.Workspace)'
+          cwd: '$(Build.ArtifactStagingDirectory)'
           app_location: '/'
           skip_app_build: true
           skip_api_build: true
