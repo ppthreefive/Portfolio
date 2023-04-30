@@ -32,3 +32,8 @@ steps:
     command: custom
     customCommand: "run test"
   displayName: "Test Angular app"
+
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/testresults/junit/unit-test-result.xml'
