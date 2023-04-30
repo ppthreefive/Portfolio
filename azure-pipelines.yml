@@ -73,6 +73,8 @@ stages:
           project: '530a322f-b707-4bec-9244-9b2364009a93'
           definition: 'Portfolio'
           buildVersionToDownload: 'latest'
+          allowPartiallySucceededBuilds: true
+          allowFailedBuilds: true
           artifactName: 'portfolio-ui'
           targetPath: '$(Pipeline.Workspace)'
       - bash: cd $(Pipeline.Workspace); echo $(ls)
