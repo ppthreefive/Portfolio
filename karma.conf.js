@@ -23,19 +23,17 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/'),
-      subdir: '.',
-      reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
-      ]
+      type: 'cobertura',
+      dir: 'testresults',
+      subdir: 'coverage',
+      file: 'code-coverage.xml'
     },
     junitReporter: {
       outputDir: 'testresults/junit',
       outputFile: 'unit-test-result.xml',
       useBrowserName: false
     },
-    reporters: ['progress', 'kjhtml', 'junit'],
+    reporters: ['progress', 'kjhtml', 'coverage', 'junit'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
