@@ -68,6 +68,7 @@ stages:
       name: Default
     jobs:
     - job: DeployWebAppProd
+      displayName: Angular App Deploy 
       steps:
       - task: DockerInstaller@0
         inputs:
@@ -88,8 +89,9 @@ stages:
         inputs:
           cwd: '$(Pipeline.Workspace)'
           app_location: '/'
+          api_location: api
           skip_app_build: true
-          skip_api_build: true
           verbose: true
         env:
           azure_static_web_apps_api_token: '$(deployment_token)'
+        displayName: Deploy to Azure Static Web Apps 
