@@ -1,0 +1,30 @@
+mat-sidenav-container {
+  height: 100%;
+}
+
+.menu-items {
+  display: flex;
+  justify-content: flex-start;
+  text-decoration: none;
+}
+
+.menu-icons {
+  align-self: center;
+  transform: scale(.90);
+}
+
+.menu-text {
+  margin: 0 0 0 1rem;
+}
+
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+  height: 100%;
+}
+
+mat-sidenav {
+  width: 150px;
+}
+
+main {
+  padding: 1rem;
+}
