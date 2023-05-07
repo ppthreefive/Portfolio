@@ -1,0 +1,21 @@
+<mat-toolbar>
+  <button mat-button class="sidenav-toggle" (click)="sendSideNavEvent()">
+    <mat-icon class="nav-icon">menu</mat-icon>
+  </button>
+  <img class="header-avatar" src="assets/logo.png" [style.cursor]="'pointer'" routerLink="/home">
+  <div class="nav-item-container">
+    <div class="nav-item" [style.cursor]="'pointer'" routerLink="/resume">
+      <mat-icon class="nav-icon">person</mat-icon>
+      <span class="nav-item-text">Resume</span>
+    </div>
+    <div class="nav-item" [style.cursor]="'pointer'" routerLink="/works">
+      <mat-icon class="nav-icon">insert_drive_file</mat-icon>
+      <span class="nav-item-text">Works</span>
+    </div>
+    <div class="nav-item" [style.cursor]="'pointer'" routerLink="/contact">
+      <mat-icon class="nav-icon">email</mat-icon>
+      <span class="nav-item-text">Contact</span>
+    </div>
+  </div>
+</mat-toolbar>
+
