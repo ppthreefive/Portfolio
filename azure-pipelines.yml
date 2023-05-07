@@ -10,7 +10,7 @@ stages:
   - stage: Build
 
     pool:
-      name: Default
+      name: Azure Pipelines
 
     jobs:
       - job: Build
