@@ -65,7 +65,7 @@ stages:
 
   - stage: Deploy
     pool:
-      name: Default
+      name: Azure Pipelines
     jobs:
     - job: DeployWebAppProd
       displayName: Angular App Deploy 
