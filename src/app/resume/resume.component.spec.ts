@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ResumeComponent } from './resume.component';
+import {AppModule} from "../app.module";
 
 describe('ResumeComponent', () => {
   let component: ResumeComponent;
@@ -8,6 +9,7 @@ describe('ResumeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports:[ AppModule ],
       declarations: [ ResumeComponent ]
     })
     .compileComponents();
