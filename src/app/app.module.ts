@@ -17,6 +17,13 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatCardModule} from "@angular/material/card";
 import { ResumeComponent } from './resume/resume.component';
 import { WorksComponent } from './works/works.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import { AboutComponent } from './about/about.component';
+import { IntroComponent } from './intro/intro.component';
+import { IconBarComponent } from './icon-bar/icon-bar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,10 @@ import { WorksComponent } from './works/works.component';
     HomeComponent,
     HeaderComponent,
     ResumeComponent,
-    WorksComponent
+    WorksComponent,
+    AboutComponent,
+    IntroComponent,
+    IconBarComponent
   ],
   imports: [
     AppRoutingModule,
@@ -40,8 +50,14 @@ import { WorksComponent } from './works/works.component';
     MatLineModule,
     MatToolbarModule,
     MatCardModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatExpansionModule,
+    MatDatepickerModule,
   ],
-  providers: [],
+  providers: [
+    { provide: Window, useValue: window }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

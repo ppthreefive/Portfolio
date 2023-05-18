@@ -1,3 +1,5 @@
+@import "src/styles.scss";
+
 .mat-toolbar {
   height: 10vh;
   background-color: black;
@@ -19,6 +21,8 @@
 .nav-item {
   padding: 1rem 2rem 1rem 1rem;
   display: flex;
+  text-decoration: none;
+  color: $primary-text-light;
 }
 
 .nav-item-text {

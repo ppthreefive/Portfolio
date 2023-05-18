@@ -1,3 +1,10 @@
+.header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 99;
+}
+
 mat-sidenav-container {
   height: 100%;
 }
@@ -23,8 +30,4 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
 
 mat-sidenav {
   width: 150px;
-}
-
-main {
-  padding: 1rem;
 }
