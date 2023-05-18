@@ -1,0 +1,73 @@
+@import "src/styles.scss";
+
+.history-container {
+  min-height: fit-content;
+  margin-top: -10px;
+  background-color: $background-dark;
+  text-align: -webkit-center;
+}
+
+.history-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 768px;
+  padding: 1rem;
+}
+
+.history-title {
+  font-weight: bold;
+  width: 100%;
+  text-align: left;
+  font-size: x-large;
+  margin: 8rem 0 0 0;
+}
+
+.history-title-two {
+  font-weight: bold;
+  width: 100%;
+  text-align: right;
+  font-size: x-large;
+  margin: 4rem 0 0 0;
+}
+
+.history-accordion {
+  margin: 2rem 0 0 0;
+}
+
+.history-accordion .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-accordion .mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 8px;
+}
+
+.company-icon {
+  width: 25px;
+  height: auto;
+  margin: 0 1rem 0 2rem;
+}
+
+.education-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1rem 0 0 0;
+  font-weight: normal;
+}
+
+.education-header {
+  font-size: large;
+  font-weight: bold;
+}
+
+.education-card {
+  margin: 1rem 0 0 0;
+}
+
+.resume-button {
+  width: fit-content;
+  margin: 2rem 0 0 0;
+  align-self: center;
+}
