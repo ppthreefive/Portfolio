@@ -1,0 +1,19 @@
+<section class="intro-container" [id]="'intro'">
+  <div class="intro-picture-container">
+    <div class="intro-content">
+      <span class="home-name">I'm Phillip Pham</span>
+      <span class="home-subtitle">A full-stack software engineer with a passion for building highly functional and adaptable digital solutions.
+      I am currently a Lead Software Engineer working on the backend system managing global profiles at General Motors.
+      </span>
+      <div class="cta-container">
+        <button mat-stroked-button color="primary" class="home-cta-email" (click)="directToEmail()">
+          Let's have a chat
+        </button>
+        <button mat-flat-button color="primary" class="home-cta-learn" (click)="scrollToAbout('about')">Learn more</button>
+      </div>
+    </div>
+    <div>
+      <img class="profile-picture" src="assets/profile_picture.png">
+    </div>
+  </div>
+</section>

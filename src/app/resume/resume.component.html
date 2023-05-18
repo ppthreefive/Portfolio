@@ -1,1 +1,91 @@
-<p>resume works!</p>
+<section class="history-container" [id]="'resume'">
+  <div class="history-content">
+    <span class="history-title">
+      Where I've worked
+    </span>
+    <mat-accordion class="history-accordion" multi>
+      <mat-expansion-panel style="text-align: left;" [expanded]="step === 0" (opened)="setStep(0)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            General Motors
+          </mat-panel-title>
+          <mat-panel-description *ngIf="!isMobile">
+            Lead Software Engineer
+          </mat-panel-description>
+          <span *ngIf="!isMobile">{{countYears('2021-05-24', null)}}</span>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/archive/b/b0/20210324062519%21General_Motors_%282021%29.svg" class="company-icon">
+        </mat-expansion-panel-header>
+        <span *ngIf="isMobile"><b>Lead Software Engineer</b></span> <span *ngIf="isMobile" style="margin-left: 2rem;">{{countYears('2021-05-24', null)}}<br><br></span>
+        <span>
+          • Assigned as an alternate Application Owner of our Global Profile Management Service that is currently managing 42 million customer profiles.<br><br>
+          • Knowledge and experience in CCPA and GDPR data privacy compliance, and incident management to satisfy all current service level agreements.<br><br>
+          • Participated in architectural discussions regarding the integration of our Global Profile Management Service and its’ replacement of various legacy systems.<br><br>
+          • Led an effort to standardize regional code and improve code reuse by 35%, which had a substantial effect on onboarding new regions with a simpler codebase.<br><br>
+          • Designed and developed a data migration utility which migrated approximately 300,000 South Korean profiles to our Global Profile Management Service platform.<br><br>
+          • Developed a utility application to automatically generate internationalization files for an Angular project, ultimately reducing wasted development time in hours for the project by 17%.<br><br>
+          • Experience in driving production deployments of microservices and web applications through Azure Pipelines, as well as managing application secrets through HashiCorp Vault.<br><br>
+          • Coordinated an effort to localize a web application written in Angular between three scrum teams. I onboarded the other two teams and performed code reviews for all three teams (16 total individuals) during this project.
+        </span>
+      </mat-expansion-panel>
+      <mat-expansion-panel style="text-align: left;" [expanded]="step === 1" (opened)="setStep(1)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Geek Squad
+          </mat-panel-title>
+          <mat-panel-description *ngIf="!isMobile">
+            Advanced Repair Agent
+          </mat-panel-description>
+          <span *ngIf="!isMobile">{{countYears('2015-07-01', '2021-05-24')}}</span>
+          <img src="https://upload.wikimedia.org/wikipedia/en/5/54/Geek_Squad_logo_%28new%29.svg" class="company-icon">
+        </mat-expansion-panel-header>
+        <span *ngIf="isMobile"><b>Advanced Repair Agent</b></span> <span *ngIf="isMobile" style="margin-left: 2rem;">{{countYears('2015-07-01', '2021-05-24')}}<br><br></span>
+        <span>
+          • Improved repair turn around time from 72 hours to 24 hours on average (66% improvement) for all types of in-store repairs.<br><br>
+          • Packaged advanced repair service, expert advice, and technical products to achieve complete solutions for customers.<br><br>
+          • Troubleshooting advanced technical issues down to the kernel level.<br><br>
+          • Provided mentorship and training to tier one front desk agents.
+        </span>
+      </mat-expansion-panel>
+      <mat-expansion-panel style="text-align: left;" [expanded]="step === 2" (opened)="setStep(2)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Estrella Mountain Community College
+          </mat-panel-title>
+          <mat-panel-description *ngIf="!isMobile">
+            Computer Science Tutor
+          </mat-panel-description>
+          <span *ngIf="!isMobile">{{countYears('2017-08-01', '2017-12-19')}}</span>
+          <img src="https://img.new.livestream.com/accounts/0000000000cb6b04/9f62250a-b3ee-4300-bfde-6634c754f60e.jpg" class="company-icon">
+        </mat-expansion-panel-header>
+        <span *ngIf="isMobile"><b>Computer Science Tutor</b></span> <span *ngIf="isMobile" style="margin-left: 2rem;">{{countYears('2017-08-01', '2017-12-19')}}<br><br></span>
+        <span>
+          • Provided mentorship to underclassmen students, and provided tutoring for various Computer Science classes offered at the college.<br><br>
+          • Performed maintenance on computer lab equipment as required to facilitate student usage throughout the day.<br><br>
+          • Completed small projects throughout the semester as assigned by the department chair.
+        </span>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <span class="history-title-two">
+      Education
+    </span>
+    <mat-card class="education-card">
+      <mat-card-header class="education-header">
+        <div>Arizona State University</div>
+      </mat-card-header>
+      <mat-card-content class="education-text">
+        <div>Bachelor of Science, Computer Science</div>
+        <div>Graduated 2021</div>
+      </mat-card-content>
+    </mat-card>
+    <mat-card class="education-card">
+      <mat-card-header class="education-header">
+        <div>Estrella Mountain Community College</div>
+      </mat-card-header>
+      <mat-card-content class="education-text">
+        <div>Associate of Science, Computer Science</div>
+        <div>Graduated 2018</div>
+      </mat-card-content>
+    </mat-card>
+    <button class="resume-button" mat-raised-button color="primary" (click)="downloadResume()">Download Resume</button>
+  </div>
+</section>

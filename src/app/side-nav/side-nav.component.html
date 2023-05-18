@@ -4,17 +4,16 @@
     #sidenav>
     <mat-list id="menus">
       <mat-list-item *ngFor="let route of routeLinks">
-        <a class="menu-items" routerLink="{{route.link}}" (click)="sidenav.close()">
-          <mat-icon class="menu-icons">{{route.icon}}</mat-icon>
+        <a class="menu-items" [style.cursor]="'pointer'" (click)="scrollTo(route.id, sidenav)">
           <span class="menu-text" *ngIf="sidenav.opened">{{ route.name }}</span>
         </a>
       </mat-list-item>
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <header (SideNavEmitter)="sidenav.toggle()"></header>
-    <main>
-      <router-outlet></router-outlet>
+    <main [id]="'top'">
+      <header class="header" (SideNavEmitter)="sidenav.toggle()"></header>
+      <home></home>
     </main>
   </mat-sidenav-content>
 </mat-sidenav-container>

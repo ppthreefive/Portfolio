@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {MatSidenav} from "@angular/material/sidenav";
 
 @Component({
   selector: 'side-nav',
@@ -9,9 +10,15 @@ export class SideNavComponent {
   opened: boolean = false;
 
   public routeLinks = [
-    { link: "home", name: "Home", icon: "home" },
-    { link: "resume", name: "Resume", icon: "person" },
-    { link: "works", name: "Works", icon: "insert_drive_file" },
-    { link: "contact", name: "Contact", icon: "email" },
+    { id: "top", name: "Home"},
+    { id: "about", name: "About Me"},
+    { id: "resume", name: "Resume"},
+    { id: "works", name: "Works"},
+    { id: "contact", name: "Contact"}
   ];
+
+  scrollTo(id: any, sidenav: MatSidenav) {
+    let el = document.getElementById(id);
+    el.scrollIntoView({behavior:"smooth"});
+  }
 }

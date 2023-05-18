@@ -1,1 +1,12 @@
-<p>contact works!</p>
+<section class="contact-container" [id]="'contact'">
+  <div class="contact-content">
+    <span class="contact-title">
+      What's next?
+    </span>
+    <mat-divider class="contact-divider"></mat-divider>
+    <span class="contact-description">
+      If you have any business inquiries, questions, or just want to say "hi", send me an email to get in touch. I will try my best to get back to you!
+    </span>
+    <button class="send-email-button" mat-raised-button color="primary" (click)="directToEmail()">Send email</button>
+  </div>
+</section>
