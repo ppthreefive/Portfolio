@@ -1,0 +1,130 @@
+@import "src/styles.scss";
+
+.works-container {
+  margin-top: -10px;
+  min-height: fit-content;
+  background-color: $black;
+  text-align: -webkit-center;
+}
+
+.works-content {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  max-width: 900px;
+  padding: 1rem;
+}
+
+.works-title {
+  margin: 8rem 0 0 0;
+  font-weight: bold;
+  width: 100%;
+  font-size: x-large;
+}
+
+.app-title {
+  margin: 2rem 0 0 0;
+  font-size: xx-large;
+  text-align: right;
+  font-weight: bold;
+}
+
+.app-tags {
+  margin: 1rem 0 0 0;
+  text-align: right;
+  font-size: small;
+}
+
+.works-button {
+  width: fit-content;
+  margin: 15px 0 0 15px;
+  align-self: flex-end;
+  display: flex;
+  flex-flow: row-reverse;
+}
+
+.works-button-text {
+  margin: 0 1rem 0 1rem;
+  color: $primary-text-light;
+}
+
+.works-button-icon {
+  color: $primary-text-light;
+}
+
+.project-one-container {
+  margin: 4rem 0 0 0;
+  display: flex;
+}
+
+.project-two-container {
+  margin: 4rem 0 8rem 0;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.project-image-one {
+  max-width: 300px;
+  clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+}
+
+.project-image-two {
+  max-width: 300px;
+  clip-path: polygon(0 0, 95% 0, 100% 100%, 5% 100%);
+}
+
+.project-desc-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-description {
+  margin: 1rem 0 0 -1.5rem;
+  padding: 25px;
+  color: $background-dark;
+  background-color: $white;
+  box-shadow: 0 20px 30px -15px $charcoal;
+  z-index: 5;
+}
+
+.app-title-two {
+  margin: 2rem 0 0 0;
+  font-size: xx-large;
+  text-align: left;
+  font-weight: bold;
+}
+
+.app-tags-two {
+  margin: 1rem 0 0 0;
+  text-align: left;
+  font-size: small;
+}
+
+.app-description-two {
+  margin: 1rem -1.5rem 0 0;
+  padding: 25px;
+  color: $background-dark;
+  background-color: $white;
+  box-shadow: 0 20px 30px -15px $charcoal;
+  z-index: 5;
+}
+
+.works-button-two {
+  width: fit-content;
+  margin: 15px 0 0 0;
+  align-self: flex-start;
+  display: flex;
+  flex-flow: row-reverse;
+}
+
+@media screen and (max-width: 1024px) {
+  .project-one-container {
+    flex-flow: row;
+    flex-wrap: wrap;
+  }
+
+  .project-two-container {
+    flex-flow: row;
+    flex-wrap: wrap;
+  }
+}

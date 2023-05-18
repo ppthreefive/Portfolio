@@ -1,1 +1,45 @@
-<p>works works!</p>
+<section class="works-container" [id]="'works'">
+  <div class="works-content">
+    <span class="works-title">
+      Some personal projects:
+    </span>
+    <div class="project-one-container">
+      <img class="project-image-one" src="assets/wetha-app.png" alt="Wetha app poster">
+      <div class="project-desc-container">
+        <span class="app-title">
+        Wetha app
+        </span>
+        <span class="app-tags">
+        Java, MVVM, OkHttp, Retrofit2, RxJava
+        </span>
+        <span class="app-description">
+        A weather application for Android using the National Weather Service web services to get daily and 10-day weather forecasts.
+          Source code available on Github.
+        </span>
+        <button class="works-button" mat-raised-button color="primary" (click)="openGithubPage('wetha')">
+          <span class="works-button-text">See Code </span>
+          <mat-icon class="works-button-icon">open_in_new</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="project-two-container">
+      <img class="project-image-two" src="assets/arcticseaice-app.png" alt="Arctic sea ice analyzer app poster">
+      <div class="project-desc-container">
+        <span class="app-title-two">
+        Arctic Sea Ice Small Network Analyzer
+        </span>
+        <span class="app-tags-two">
+        C++, multi-threading, graphs, data
+        </span>
+        <span class="app-description-two">
+        Terminal based C++ application that uses the SMMR-SSM/I passive microwave data set of the beaufort sea region, and performs
+          various statistical analysis based on basic graph and Floyd Warshall algorithms. Source code available on Github.
+        </span>
+        <button class="works-button-two" mat-raised-button color="primary" (click)="openGithubPage('arctic')">
+          <span class="works-button-text">See Code </span>
+          <mat-icon class="works-button-icon">open_in_new</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
