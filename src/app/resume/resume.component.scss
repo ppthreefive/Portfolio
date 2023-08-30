@@ -43,6 +43,12 @@
   margin-left: 8px;
 }
 
+.multi-job-title-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .company-icon {
   width: 25px;
   height: auto;
