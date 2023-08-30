@@ -4,7 +4,7 @@
     #sidenav>
     <mat-list id="menus">
       <mat-list-item *ngFor="let route of routeLinks">
-        <a class="menu-items" [style.cursor]="'pointer'" (click)="scrollTo(route.id, sidenav)">
+        <a class="menu-items" [style.cursor]="'pointer'" (click)="scrollTo(route.id)">
           <span class="menu-text" *ngIf="sidenav.opened">{{ route.name }}</span>
         </a>
       </mat-list-item>
