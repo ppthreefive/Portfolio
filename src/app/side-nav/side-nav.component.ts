@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {MatSidenav} from "@angular/material/sidenav";
 
 @Component({
   selector: 'side-nav',
@@ -17,7 +16,7 @@ export class SideNavComponent {
     { id: "contact", name: "Contact"}
   ];
 
-  scrollTo(id: any, sidenav: MatSidenav) {
+  scrollTo(id: any) {
     let el = document.getElementById(id);
     el.scrollIntoView({behavior:"smooth"});
   }
