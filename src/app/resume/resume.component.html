@@ -4,27 +4,37 @@
       Where I've worked
     </span>
     <mat-accordion class="history-accordion" multi>
-      <mat-expansion-panel style="text-align: left;" [expanded]="step === 0" (opened)="setStep(0)">
+      <mat-expansion-panel style="text-align: left;" [expanded]="step === 0" (opened)="setStep(0)" #first>
         <mat-expansion-panel-header>
           <mat-panel-title>
             General Motors
           </mat-panel-title>
-          <mat-panel-description *ngIf="!isMobile">
+          <mat-panel-description *ngIf="!isMobile && first._getExpandedState() !== 'expanded'">
             Lead Software Engineer
           </mat-panel-description>
           <span *ngIf="!isMobile">{{countYears('2021-05-24', null)}}</span>
           <img src="https://upload.wikimedia.org/wikipedia/commons/archive/b/b0/20210324062519%21General_Motors_%282021%29.svg" class="company-icon">
         </mat-expansion-panel-header>
-        <span *ngIf="isMobile"><b>Lead Software Engineer</b></span> <span *ngIf="isMobile" style="margin-left: 2rem;">{{countYears('2021-05-24', null)}}<br><br></span>
+        <div class="multi-job-title-header">
+          <span *ngIf="isMobile || first._getExpandedState() === 'expanded'" style="font-weight: 500;">Lead Software Engineer</span> <span *ngIf="isMobile || first._getExpandedState() === 'expanded'" style="margin-left: 2rem; font-weight: 500;">{{countYears('2023-05-24', null)}}<br><br></span>
+        </div>
         <span>
-          • Assigned as an alternate Application Owner of our Global Profile Management Service that is currently managing 42 million customer profiles.<br><br>
-          • Knowledge and experience in CCPA and GDPR data privacy compliance, and incident management to satisfy all current service level agreements.<br><br>
-          • Participated in architectural discussions regarding the integration of our Global Profile Management Service and its’ replacement of various legacy systems.<br><br>
-          • Led an effort to standardize regional code and improve code reuse by 35%, which had a substantial effect on onboarding new regions with a simpler codebase.<br><br>
-          • Designed and developed a data migration utility which migrated approximately 300,000 South Korean profiles to our Global Profile Management Service platform.<br><br>
-          • Developed a utility application to automatically generate internationalization files for an Angular project, ultimately reducing wasted development time in hours for the project by 17%.<br><br>
-          • Experience in driving production deployments of microservices and web applications through Azure Pipelines, as well as managing application secrets through HashiCorp Vault.<br><br>
-          • Coordinated an effort to localize a web application written in Angular between three scrum teams. I onboarded the other two teams and performed code reviews for all three teams (16 total individuals) during this project.
+          • Promoted in just two years, and assigned as co-Application Owner of the Global Profile Management Service that manages 42 million customer profiles worldwide.<br><br>
+          • Designed a Kafka to Pulsar messaging adapter which enabled consumption of message events allowing partners using Pulsar to consume new messages without re-architecture.<br><br>
+          • Supervised a group of DevOps engineers to build new CI/DI in Azure Pipelines to facilitate new service releases and deployments.<br><br>
+          • Handling of CCPA and GDPR data privacy compliance, as well as incident/ticket management (being on-call) to satisfy all service level agreements, allowing our services to maintain full compliance stars.<br><br>
+          • Supervising a scrum team of seven engineers developing an Angular web application with Spring backend that makes live configuration changes to a critical Global Profile Management Service platform.<br><br>
+        </span>
+        <mat-divider></mat-divider><br><br>
+        <div class="multi-job-title-header">
+          <span style="font-weight: 500;">Software Engineer</span> <span style="margin-left: 2rem; font-weight: 500;">{{countYears('2021-05-24', '2023-05-24')}}<br><br></span>
+        </div>
+        <span>
+          • Transformed Spring REST controller for critical backend service, leveraging factory design patterns to facilitate multi-region support and achieving flexible data mapping capabilities resulting in enhanced regional scalability.<br><br>
+          • Refactored Java data models to improve code reuse and readability by utilizing polymorphism and Lombok, which eliminated duplicate and boilerplate code by 40%.<br><br>
+          • Contributed to a new utility using Spring to migrate customer data from legacy platforms to the new Global Profiles Management Service platform. Successfully migrated 300,000 customer profiles.<br><br>
+          • Developed an automated utility to generate localized JSON files from business generated excel documents containing localized copy for supported regions, eliminating repetitive manual labor for the project by 15%.<br><br>
+          • Built an ecommerce cart and filtering component for a parts and accessories web application utilizing Angular Typescript, resulting in an enhanced user shopping experience.<br><br>
         </span>
       </mat-expansion-panel>
       <mat-expansion-panel style="text-align: left;" [expanded]="step === 1" (opened)="setStep(1)">
@@ -38,7 +48,9 @@
           <span *ngIf="!isMobile">{{countYears('2015-07-01', '2021-05-24')}}</span>
           <img src="https://upload.wikimedia.org/wikipedia/en/5/54/Geek_Squad_logo_%28new%29.svg" class="company-icon">
         </mat-expansion-panel-header>
-        <span *ngIf="isMobile"><b>Advanced Repair Agent</b></span> <span *ngIf="isMobile" style="margin-left: 2rem;">{{countYears('2015-07-01', '2021-05-24')}}<br><br></span>
+        <div class="multi-job-title-header">
+          <span *ngIf="isMobile" style="font-weight: 500;">Advanced Repair Agent</span> <span *ngIf="isMobile" style="margin-left: 2rem; font-weight: 500">{{countYears('2015-07-01', '2021-05-24')}}<br><br></span>
+        </div>
         <span>
           • Improved repair turn around time from 72 hours to 24 hours on average (66% improvement) for all types of in-store repairs.<br><br>
           • Packaged advanced repair service, expert advice, and technical products to achieve complete solutions for customers.<br><br>
@@ -57,7 +69,9 @@
           <span *ngIf="!isMobile">{{countYears('2017-08-01', '2017-12-19')}}</span>
           <img src="https://img.new.livestream.com/accounts/0000000000cb6b04/9f62250a-b3ee-4300-bfde-6634c754f60e.jpg" class="company-icon">
         </mat-expansion-panel-header>
-        <span *ngIf="isMobile"><b>Computer Science Tutor</b></span> <span *ngIf="isMobile" style="margin-left: 2rem;">{{countYears('2017-08-01', '2017-12-19')}}<br><br></span>
+        <div class="multi-job-title-header">
+          <span *ngIf="isMobile" style="font-weight: 500;">Computer Science Tutor</span> <span *ngIf="isMobile" style="margin-left: 2rem; font-weight: 500;">{{countYears('2017-08-01', '2017-12-19')}}<br><br></span>
+        </div>
         <span>
           • Provided mentorship to underclassmen students, and provided tutoring for various Computer Science classes offered at the college.<br><br>
           • Performed maintenance on computer lab equipment as required to facilitate student usage throughout the day.<br><br>
