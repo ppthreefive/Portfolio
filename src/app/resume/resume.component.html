@@ -10,24 +10,24 @@
             General Motors
           </mat-panel-title>
           <mat-panel-description *ngIf="!isMobile && first._getExpandedState() !== 'expanded'">
-            Lead Software Engineer
+            Software Engineer 2
           </mat-panel-description>
-          <span *ngIf="!isMobile">{{countYears('2021-05-24', null)}}</span>
+          <span *ngIf="!isMobile">{{countYears('2021-05-24', '2023-11-01')}}</span>
           <img src="https://upload.wikimedia.org/wikipedia/commons/archive/b/b0/20210324062519%21General_Motors_%282021%29.svg" class="company-icon" alt="General Motors logo">
         </mat-expansion-panel-header>
         <div class="multi-job-title-header">
-          <span *ngIf="isMobile || first._getExpandedState() === 'expanded'" style="font-weight: 500;">Lead Software Engineer</span> <span *ngIf="isMobile || first._getExpandedState() === 'expanded'" style="margin-left: 2rem; font-weight: 500;">{{countYears('2023-05-24', null)}}<br><br></span>
+          <span *ngIf="isMobile || first._getExpandedState() === 'expanded'" style="font-weight: 500;">Software Engineer 2</span> <span *ngIf="isMobile || first._getExpandedState() === 'expanded'" style="margin-left: 2rem; font-weight: 500;">{{countYears('2023-05-24', '2023-11-01')}}<br><br></span>
         </div>
         <span>
-          • Promoted in just two years, and assigned as co-Application Owner of the Global Profile Management Service that manages 42 million customer profiles worldwide.<br><br>
-          • Designed a Kafka to Pulsar messaging adapter which enabled consumption of message events allowing partners using Pulsar to consume new messages without re-architecture.<br><br>
-          • Supervised a group of DevOps engineers to build new CI/DI in Azure Pipelines to facilitate new service releases and deployments.<br><br>
+          • Promoted and assigned as co-Application Owner of the Global Profile Management Service that manages 42 million customer profiles worldwide.<br><br>
+          • Built a Kafka to Pulsar messaging adapter which enabled consumption of message events allowing partners using Pulsar to consume new messages without re-architecture<br><br>
+          • Supervised a group of DevOps engineers to build new CI/CD pipelines in Azure Pipelines to facilitate new service releases and deployments.<br><br>
           • Handling of CCPA and GDPR data privacy compliance, as well as incident/ticket management (being on-call) to satisfy all service level agreements, allowing our services to maintain full compliance stars.<br><br>
-          • Supervising a scrum team of seven engineers developing an Angular web application with Spring backend that makes live configuration changes to a critical Global Profile Management Service platform.<br><br>
+          • Led a scrum team of seven engineers to develop an Angular web application with Spring backend that makes configuration changes to a critical Global Profile Management Service platform using REST endpoints<br><br>
         </span>
         <mat-divider></mat-divider><br><br>
         <div class="multi-job-title-header">
-          <span style="font-weight: 500;">Software Engineer</span> <span style="margin-left: 2rem; font-weight: 500;">{{countYears('2021-05-24', '2023-05-24')}}<br><br></span>
+          <span style="font-weight: 500;">Software Engineer 1</span> <span style="margin-left: 2rem; font-weight: 500;">{{countYears('2021-05-24', '2023-05-24')}}<br><br></span>
         </div>
         <span>
           • Transformed Spring REST controller for critical backend service, leveraging factory design patterns to facilitate multi-region support and achieving flexible data mapping capabilities resulting in enhanced regional scalability.<br><br>
